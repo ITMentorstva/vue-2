@@ -1,5 +1,12 @@
 
 <template>
+
+  <Navigation></Navigation>
+
+  <div v-for="(name, index) in classes" :key="index">
+    <ClassInfoComponent :className="name"></ClassInfoComponent>
+  </div>
+
   <h1>Hello world {{ name }}</h1>
 
   <p v-if="professor">User is a professor</p>
@@ -26,8 +33,12 @@
 
 <script>
 
+import Navigation from "@/components/Navigation.vue";
+import ClassInfoComponent from "@/components/ClassInfo.vue";
+
 export default {
   name: "App",
+  components: {ClassInfoComponent, Navigation},
   data() {
     return {
       name: "Toma",
